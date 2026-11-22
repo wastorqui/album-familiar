@@ -5,7 +5,7 @@ import type { Photo } from "./types";
 
 // Fotos: Vercel Blob (privado) en producción; carpeta data/uploads en pruebas locales.
 
-const hasBlob = !!process.env.BLOB_READ_WRITE_TOKEN;
+const hasBlob = !!(process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID);
 const LOCAL = path.join(process.cwd(), "data", "uploads");
 
 export function checkPhotoStorage() {
